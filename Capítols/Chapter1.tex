@@ -1,0 +1,94 @@
+\addchap{Resum}
+
+\section*{Introducció}
+En els entorns industrials actuals, els sistemes automatitzats governats per \textit{PLC} constitueixen el nucli del funcionament de la majoria de les línies de producció. Aquests sistemes es caracteritzen per executar seqüències deterministes i controlades que garanteixen l’operativitat del procés productiu. Tanmateix, la detecció d’incidències es basa habitualment en la generació d’alarmes quan una condició ja ha fallat, fet que implica un enfocament principalment reactiu.
+
+Aquest plantejament presenta limitacions importants, ja que sovint existeixen indicadors previs que permetrien anticipar problemes abans que es produeixi una fallada crítica. Aquestes desviacions poden manifestar-se tant en el flux d’execució de la màquina com en les variables internes del sistema de control, especialment en paràmetres relacionats amb el temps, la posició o la velocitat dels moviments.
+
+En aquest context, el projecte proposa el desenvolupament d’un sistema de supervisió intel·ligent en temps gairebé real capaç d’analitzar el comportament del sistema industrial i detectar desviacions, tant de caràcter seqüencial com funcional, abans que es produeixi una incidència greu.
+
+\section*{Objectius}
+L’objectiu principal del projecte és desenvolupar un sistema capaç de monitorar i analitzar el comportament d’una màquina industrial per tal de detectar anomalies i anticipar possibles degradacions dels seus components.
+
+Per assolir aquest objectiu general, es plantegen diversos objectius específics:
+\begin{itemize}
+    \item Capturar i registrar les seqüències d’estats d’execució de la màquina en temps gairebé real.
+    \item Definir un model de comportament esperat mitjançant un graf de referència que representi la seqüència òptima de funcionament.
+    \item Desenvolupar un mecanisme de validació capaç de detectar desviacions respecte a aquest model.
+    \item Integrar variables internes del \textit{PLC} associades al comportament funcional dels components principals i calcular mètriques de degradació per analitzar desviacions funcionals respecte a valors de referència (baselines).
+    \item Dissenyar una interfície gràfica que permeti visualitzar l’estat del sistema de forma clara i interpretada.
+    \item Emmagatzemar l’historial d’execucions, anomalies i desviacions per facilitar l’anàlisi posterior.
+\end{itemize}
+
+
+\section*{Descripció del sistema}
+El sistema desenvolupat segueix una arquitectura distribuïda client-servidor estructurada en tres capes principals, amb un flux de dades unidireccional i orientat a esdeveniments.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Arquitectura.png}
+    \caption{Esquema de l'arquitectura del sistema}
+    \label{fig:arquitectura}
+\end{figure}
+
+La capa de dades està formada pel \textit{PLC} industrial, que actua com a font d’informació, exposant tant els estats del sistema com les variables internes mitjançant el protocol \textit{OPC UA}. Aquest mecanisme permet accedir a la informació sense modificar la lògica de control existent.
+
+La capa de processament correspon al \textit{backend}, implementat en \textit{Python} amb \textit{FastAPI}, que és el responsable de rebre els esdeveniments, processar la informació de manera asíncrona i realitzar tant la validació de seqüències com el càlcul de mètriques de degradació.
+La capa de persistència es basa en una base de dades relacional \textit{PostgreSQL}, encarregada d’emmagatzemar sessions, execucions, passos, anomalies i informació de degradació funcional.
+
+Finalment, la capa de presentació correspon a una interfície web desenvolupada amb \textit{JavaScript} que permet visualitzar en temps gairebé real l’estat del sistema, el graf d’execució i els indicadors de degradació.
+
+El funcionament del sistema es basa en un flux de dades continu, on els esdeveniments generats pel \textit{PLC} són processats de manera incremental pel \textit{backend} i propagats al \textit{frontend} mitjançant comunicació en temps real basada en \textit{WebSocket}. Aquesta arquitectura permet mantenir la coherència entre l’estat intern del sistema i la seva representació visual, garantint una resposta immediata davant qualsevol canvi en el comportament de la màquina.
+
+
+\section*{Metodologia i desenvolupament}
+El desenvolupament del projecte s’ha dut a terme seguint una metodologia iterativa i incremental inspirada en els principis \textit{Agile}, que ha permès adaptar el sistema a les necessitats reals i validar progressivament els components desenvolupats.
+
+El sistema es basa en dos mecanismes fonamentals:
+
+\textbf{Detecció d’anomalies de seqüència}
+La seqüència d’execució de la màquina es modela mitjançant un graf dirigit, on cada node representa un estat i cada aresta una transició possible. Durant l’execució, cada transició observada es valida comparant-la amb el graf de referència. Qualsevol transició no definida es considera una anomalia.
+
+\textbf{Detecció de degradació funcional}
+De manera complementària, el sistema analitza variables internes del \textit{PLC} per calcular mètriques funcionals associades als components. Aquestes mètriques es comparen amb valors de referència (\textit{baselines}), detectant desviacions que poden indicar degradacions progressives.
+
+Per facilitar el desenvolupament i la validació, s’ha implementat un mode \textit{DEMO} que permet simular el comportament del sistema mitjançant scripts, reproduint escenaris controlats com execucions normals, anomalies o degradació funcional.
+
+El procés de desenvolupament ha prioritzat la validació incremental dels components, cosa que permet verificar de manera aïllada tant la capa de processament com la capa de visualització abans de la integració amb el sistema real. Aquest enfocament ha contribuït a reduir riscos i a garantir la robustesa del sistema en les fases finals de validació amb dades industrials.
+
+
+\section*{Resultats}
+El sistema desenvolupat és plenament funcional i ha estat validat tant en entorns simulats com en condicions reals mitjançant la integració amb un \textit{PLC} industrial.
+
+Els resultats principals del projecte són:
+
+\begin{itemize}
+    \item Implementació d’un sistema capaç de detectar anomalies de seqüència en temps gairebé real.
+    \item Implementació d’un mecanisme de detecció de degradació funcional que permet identificar desviacions en el comportament dels components de la màquina.
+    \item Visualització clara i estructurada del comportament del sistema mitjançant una interfície orientada a l’operari.
+    \item Persistència completa de l’historial d’execucions i desviacions.
+    \item Funcionament amb latència reduïda, inferior als 100 ms en condicions normals.
+\end{itemize}
+
+A diferència de solucions tradicionals com \textit{SCADA o MES}, el sistema desenvolupat proporciona una representació explícita de la seqüència i una interpretació directa de les desviacions detectades, facilitant la diagnosi operativa.
+
+A més, el sistema ha demostrat la seva capacitat per operar en entorns amb dades no controlades, mantenint la coherència del processament i la interpretabilitat dels resultats. Aquesta característica és especialment rellevant en entorns industrials, on la variabilitat dels senyals i les condicions de comunicació poden afectar el comportament dels sistemes de monitoratge.
+
+\section*{Conclusions}
+El projecte assoleix satisfactòriament els objectius plantejats, desenvolupant un sistema de supervisió industrial capaç de detectar desviacions i anticipar incidències de manera efectiva. Més enllà de la seva funcionalitat, el sistema demostra la viabilitat d’incorporar una capa d’anàlisi avançada sobre sistemes de control existents sense necessitat de modificar-ne la lògica, fet que en facilita la integració en entorns industrials reals.
+
+Una de les principals aportacions del treball és la combinació de dues perspectives complementàries d’anàlisi: d’una banda, la modelització del comportament del sistema mitjançant grafs dirigits, que permet validar la coherència de la seqüència d’execució, i de l’altra, l’anàlisi de la degradació funcional a partir de variables internes del \textit{PLC}, que possibilita la detecció de desviacions fins i tot quan el comportament lògic és correcte. Aquesta aproximació híbrida permet obtenir una visió més completa del funcionament del sistema, millorant la capacitat de diagnosi respecte a solucions tradicionals.
+
+Des del punt de vista funcional, el sistema destaca per la seva capacitat d’oferir un comportament interpretable i determinista, aspecte especialment rellevant en entorns industrials, on la comprensió del funcionament és clau per a la presa de decisions operatives.
+
+Com a limitacions, cal destacar que el sistema ha estat validat en un entorn reduït i que depèn de la definició prèvia del graf de referència, fet que pot requerir un esforç addicional en entorns amb una alta variabilitat. Tanmateix, els resultats obtinguts indiquen que el sistema té un potencial notable per millorar la supervisió industrial, reduir temps d’inactivitat i facilitar una detecció més precoç de les incidències.
+
+En conjunt, el sistema desenvolupat valida l’eficàcia d’enfocaments basats en l’anàlisi del comportament per a la supervisió industrial avançada, obrint la porta a futures aplicacions en entorns productius més complexos.
+
+\section*{Enllaços}
+A continuació es proporcionen els enllaços associats al projecte:
+\begin{itemize}
+    \item \textbf{Vídeo demostració del sistema:} \url{https://...}
+    \item \textbf{Vídeo explicació del codi:} \url{https://...}
+    \item \textbf{Repositori del projecte:} \url{https://...}
+\end{itemize}
