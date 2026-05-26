@@ -1,7 +1,7 @@
 \addchap{Resum}
 
 \section*{Introducció}
-En els entorns industrials actuals, els sistemes automatitzats governats per \textit{PLC} constitueixen el nucli del funcionament de la majoria de les línies de producció. Aquests sistemes es caracteritzen per executar seqüències deterministes i controlades que garanteixen l’operativitat del procés productiu. Tanmateix, la detecció d’incidències es basa habitualment en la generació d’alarmes quan una condició ja ha fallat, fet que implica un enfocament principalment reactiu.
+En els entorns industrials actuals, els sistemes automatitzats governats per \textit{Programmable Logic Controller (PLC)} constitueixen el nucli del funcionament de la majoria de les línies de producció. Aquests sistemes es caracteritzen per executar seqüències deterministes i controlades que garanteixen l’operativitat del procés productiu. Tanmateix, la detecció d’incidències es basa habitualment en la generació d’alarmes quan una condició ja ha fallat, fet que implica un enfocament principalment reactiu.
 
 Aquest plantejament presenta limitacions importants, ja que sovint existeixen indicadors previs que permetrien anticipar problemes abans que es produeixi una fallada crítica. Aquestes desviacions poden manifestar-se tant en el flux d’execució de la màquina com en les variables internes del sistema de control, especialment en paràmetres relacionats amb el temps, la posició o la velocitat dels moviments.
 
@@ -15,7 +15,7 @@ Per assolir aquest objectiu general, es plantegen diversos objectius específics
     \item Capturar i registrar les seqüències d’estats d’execució de la màquina en temps gairebé real.
     \item Definir un model de comportament esperat mitjançant un graf de referència que representi la seqüència òptima de funcionament.
     \item Desenvolupar un mecanisme de validació capaç de detectar desviacions respecte a aquest model.
-    \item Integrar variables internes del \textit{PLC} associades al comportament funcional dels components principals i calcular mètriques de degradació per analitzar desviacions funcionals respecte a valors de referència (baselines).
+    \item Integrar variables internes del \textit{PLC} associades al comportament funcional dels components principals i calcular mètriques de degradació per analitzar desviacions funcionals respecte a valors de referència (\textit{baselines}).
     \item Dissenyar una interfície gràfica que permeti visualitzar l’estat del sistema de forma clara i interpretada.
     \item Emmagatzemar l’historial d’execucions, anomalies i desviacions per facilitar l’anàlisi posterior.
 \end{itemize}
@@ -70,7 +70,7 @@ Els resultats principals del projecte són:
     \item Funcionament amb latència reduïda, inferior als 100 ms en condicions normals.
 \end{itemize}
 
-A diferència de solucions tradicionals com \textit{SCADA o MES}, el sistema desenvolupat proporciona una representació explícita de la seqüència i una interpretació directa de les desviacions detectades, facilitant la diagnosi operativa.
+A diferència de solucions tradicionals com \textit{Supervisory Control And Data Acquisition (SCADA)} o \textit{Manufacturing Execution System (MES)}, el sistema desenvolupat proporciona una representació explícita de la seqüència i una interpretació directa de les desviacions detectades, facilitant la diagnosi operativa.
 
 A més, el sistema ha demostrat la seva capacitat per operar en entorns amb dades no controlades, mantenint la coherència del processament i la interpretabilitat dels resultats. Aquesta característica és especialment rellevant en entorns industrials, on la variabilitat dels senyals i les condicions de comunicació poden afectar el comportament dels sistemes de monitoratge.
 
@@ -89,6 +89,6 @@ En conjunt, el sistema desenvolupat valida l’eficàcia d’enfocaments basats 
 A continuació es proporcionen els enllaços associats al projecte:
 \begin{itemize}
     \item \textbf{Vídeo demostració del sistema:} \url{https://youtu.be/VDBSPDW3ZxU}
-    \item \textbf{Vídeo explicació del codi:} \url{https://youtu.be/ks75Bt58Ys0}
+    \item \textbf{Vídeo explicació del codi:} \url{https://youtu.be/Sp0YXWMMDvo}
     \item \textbf{Codi font del projecte:} \url{https://drive.google.com/file/d/1G6Rj0N9Hcw1dLoFVtBbXqD3S7Mfp5NdF/view?usp=sharing}
 \end{itemize}
