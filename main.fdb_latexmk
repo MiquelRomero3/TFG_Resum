@@ -1,11 +1,11 @@
 # Fdb version 4
-["biber main"] 1779478436.89106 "main.bcf" "main.bbl" "main" 1779792759.00725 0
-  "main.bcf" 1779792758 107942 b5a045a0b8b168c2760fbc2e3ba2205f "pdflatex"
+["biber main"] 1779478436.89106 "main.bcf" "main.bbl" "main" 1779954639.29225 0
+  "main.bcf" 1779954639 107942 b5a045a0b8b168c2760fbc2e3ba2205f "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1779792756.58124 "c:/Users/miquelromero/Documents/Resum_Latex_TFG/main.tex" "main.pdf" "main" 1779792759.00777 0
+["pdflatex"] 1779954632.88266 "c:/Users/miquelromero/Documents/Resum_Latex_TFG/main.tex" "main.pdf" "main" 1779954639.29278 0
   "C:/Users/miquelromero/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1779446600 83486 9208647d054da4672a050e7ed94c9aa5 ""
   "C:/Users/miquelromero/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1770813084 13336875 0d0d3e4a2da2a13d71d4a2eaa1563167 ""
   "C:/Users/miquelromero/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -248,18 +248,18 @@
   "C:/Users/miquelromero/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
   "C:/Users/miquelromero/AppData/Local/Programs/MiKTeX/tex/latex/xpatch/xpatch.sty" 1585221260 8510 7803f78066c4f9d008405191a4b43073 ""
   "C:/Users/miquelromero/AppData/Local/Programs/MiKTeX/tex/latex/xurl/xurl.sty" 1641733940 4675 e4b8c405820368c2dfb03526e16d725a ""
-  "Capítols/Chapter1.aux" 1779792758 4792 bb971d6bfc779f11d14cf573e9f32c41 "pdflatex"
-  "Capítols/Chapter1.tex" 1779789414 10231 b40317f3e8660a8102cf4351bf4c438e ""
+  "Capítols/Chapter1.aux" 1779954639 4792 bb971d6bfc779f11d14cf573e9f32c41 "pdflatex"
+  "Capítols/Chapter1.tex" 1779954630 10233 ef1fb1438eb97250386f14e2d066b913 ""
   "Figures/Arquitectura.png" 1778057930 41599 2a5a7cb462140315c97fced4b3f26073 ""
   "Figures/EPS_centrat.png" 1770812135 897838 770a8fd3ad5aa910928a376be63f4349 ""
   "Front/titlepage.tex" 1770812135 1397 b7a141392b274ae2e08bad6f41a6b52b ""
   "MastersDoctoralThesis.cls" 1770812135 22432 1c0d8cf0fb1f4a772bef1b0a24478188 ""
-  "c:/Users/miquelromero/Documents/Resum_Latex_TFG/main.tex" 1779792756 9090 daa9b7b45e24b471aea5e1e50919643d ""
-  "main.aux" 1779792758 449 1bc121c28299b025e39ba49ec0da7d65 "pdflatex"
+  "c:/Users/miquelromero/Documents/Resum_Latex_TFG/main.tex" 1779792764 9090 daa9b7b45e24b471aea5e1e50919643d ""
+  "main.aux" 1779954639 449 1bc121c28299b025e39ba49ec0da7d65 "pdflatex"
   "main.bbl" 1779115495 486 76d65a242ec496c9b4361af646ff12cb "biber main"
-  "main.out" 1779792758 69 15794fee5d86dbf9047f3af7d2585386 "pdflatex"
-  "main.run.xml" 1779792758 2343 c5f28fbf4931955ce89c6e93e0ada6a5 "pdflatex"
-  "main.tex" 1779792756 9090 daa9b7b45e24b471aea5e1e50919643d ""
+  "main.out" 1779954639 69 15794fee5d86dbf9047f3af7d2585386 "pdflatex"
+  "main.run.xml" 1779954639 2343 c5f28fbf4931955ce89c6e93e0ada6a5 "pdflatex"
+  "main.tex" 1779792764 9090 daa9b7b45e24b471aea5e1e50919643d ""
   "preamble.tex" 1779693535 5025 bf80fc794097ed0cb5d26b6b7dd9ee19 ""
   (generated)
   "Capítols/Chapter1.aux"
